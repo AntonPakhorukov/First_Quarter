@@ -56,6 +56,27 @@ void Solution2()
     array = GetArray(array);
     Console.Clear();
     Console.WriteLine("[" + String.Join(", ", array) + "]");
+    string[] GetResultArray(string[] inputArray) 
+    {
+        int sizeNewArray = 0;
+        int index = 0;
+        for (int i = 0; i < inputArray.Length; i++)
+        {
+            if (inputArray[i].Length <= 3) sizeNewArray++;
+        }
+        string[] result = new string[sizeNewArray];
+        for (int j = 0; j < inputArray.Length; j++) 
+        {
+            if (inputArray[j].Length <= 3) 
+            {
+                result[index] = inputArray[j];
+                index++;
+            }
+        }
+        return result;
+    }
+    string[] resultArray = GetResultArray(array);
+    Console.WriteLine("[" + String.Join(", ", resultArray) + "]");
 }
 
 
